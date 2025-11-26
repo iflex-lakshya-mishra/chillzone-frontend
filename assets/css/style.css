@@ -1,1 +1,96 @@
-body{font-family:Inter,Arial,sans-serif;background:#f7f9fc;color:#111} .navbar{background:#0f2540;color:#fff;padding:12px} .brand img{height:36px} .nav-links a{color:#fff;margin-left:12px;text-decoration:none}
+:root{
+  --bg-light:#f3f6fb;
+  --panel:#ffffff;
+  --muted:#98a0b3;
+  --primary:#5b7cff;
+  --accent:#6ad0c8;
+}
+
+body{background:var(--bg-light);font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0}
+
+/* Top hero on index */
+.bg-hero{background:linear-gradient(135deg,#6a11cb,#2575fc);min-height:380px}
+.bg-hero h1{color:#fff}
+
+/* Auth gradient header */
+.bg-gradient{background:linear-gradient(135deg,var(--primary),var(--accent))}
+
+/* Enhanced form styles */
+.form-control:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 0.2rem rgba(91,124,255,0.25);
+}
+
+.btn-primary{
+  background:linear-gradient(90deg,var(--primary),#7a8dff);
+  border:none;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(91,124,255,0.4);
+}
+
+/* Card enhancements */
+.card{
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 24px rgba(0,0,0,0.15) !important;
+}
+
+/* Navbar logo styling */
+.navbar-brand img{
+  filter:drop-shadow(0 2px 4px rgba(91,124,255,0.3));
+}
+
+/* layout */
+.app-wrap{padding:12px}
+.topnav{background:var(--panel);padding:10px 18px;border-radius:10px}
+.topnav .nav-item{cursor:pointer;padding:8px 12px;border-radius:10px}
+.topnav .nav-item.active{background:linear-gradient(90deg,var(--primary),#7a8dff);color:#fff}
+
+.app{display:flex;gap:16px;padding:18px;background:var(--panel);border-radius:14px}
+.sidebar{background:linear-gradient(180deg,#0f2540 0%, #0b2036 100%);color:#fff;padding:22px 14px;min-width:86px;border-radius:10px}
+.sidebar .icon{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;margin-bottom:14px;cursor:pointer}
+
+.left-list{background:var(--panel);padding:18px;border-radius:10px;min-width:320px}
+.left-list .contact{border-radius:12px;padding:12px;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.left-list .contact.active{background:linear-gradient(90deg, rgba(91,124,255,0.12), rgba(106,208,200,0.06));box-shadow:inset 0 0 0 1px rgba(91,124,255,0.08)}
+.avatar{width:46px;height:46px;border-radius:12px;background:#e9eefc;flex-shrink:0}
+.contact .meta{flex:1}
+.contact h6{margin:0;font-size:14px}
+.contact p{margin:2px 0 0;font-size:13px;color:var(--muted)}
+
+.chat-panel{background:#f1f6fb;padding:24px;border-radius:10px;flex-grow:1;display:flex;flex-direction:column;min-height:480px}
+.chat-window{background:#eef5ff;border-radius:16px;padding:22px;height:420px;overflow:auto}
+.bubble{display:inline-block;padding:12px 16px;border-radius:14px;max-width:72%;font-size:14px;margin:8px 0}
+.bubble.me{background:linear-gradient(90deg,var(--primary),#7a8dff);color:#fff;border-bottom-right-radius:4px}
+.bubble.you{background:#fff;color:#24314a;border-bottom-left-radius:4px}
+.time{display:block;font-size:11px;color:var(--muted);margin-top:6px}
+
+.chat-input{display:flex;gap:12px;align-items:center;margin-top:14px}
+.chat-input .form-control{border-radius:999px;padding:12px 16px}
+.send-btn{width:48px;height:48px;border-radius:12px;background:var(--primary);color:#fff;border:none}
+
+.right-panel{background:var(--panel);padding:18px;border-radius:10px;min-width:320px}
+.hero-sample{width:100%;border-radius:8px;object-fit:cover}
+
+/* groups */
+.group-item{padding:10px;border-radius:10px;margin-bottom:8px;background:rgba(0,0,0,0.03);cursor:pointer}
+.group-item:hover{background:rgba(91,124,255,0.06)}
+
+/* responsive: mobile dark */
+@media(max-width:900px){
+  body{background:#082029;padding:12px}
+  .app{flex-direction:column;padding:12px;background:linear-gradient(180deg,#04121a 0%, #07272b 100%);box-shadow:none}
+  .left-list{min-width:unset}
+  .right-panel{min-width:unset}
+  .chat-window{background:linear-gradient(180deg,#071826,#0b2530);color:#cfeff0}
+  .bubble.you{background:#0b3040;color:#dff7f2}
+  .bubble.me{background:linear-gradient(90deg,#00e6c3,#00b7ff);color:#012}
+  .chat-input .form-control{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);color:#d8f6f0}
+}
