@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Register</title><link href="../assets/css/style.css" rel="stylesheet"></head><body class="p-4">
+<h2>Register</h2>
+<form id="regForm" enctype="multipart/form-data">
+  <input name="username" id="username" placeholder="username"><br><br>
+  <input name="email" id="email" placeholder="email"><br><br>
+  <input type="password" name="password" id="password" placeholder="password"><br><br>
+  <label>Profile picture (optional)</label><br>
+  <input type="file" name="pfp" id="pfp"><br><br>
+  <button type="button" id="regBtn">Register</button>
+</form>
+<script>
+document.getElementById('regBtn').addEventListener('click', async ()=>{
+  const form = document.getElementById('regForm');
+  const fd = new FormData(form);
+  const res = await fetch('/backend/register.php',{method:'POST',body:fd});
+  const j = await res.json();
+  if(j.ok){ alert('Registered'); location.href='/pages/login.html'; } else alert(j.msg||'Error');
+});
+</script>
+</body></html>

@@ -1,0 +1,10 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Chat</title><link href="../assets/css/style.css" rel="stylesheet"></head><body class="p-4">
+<h2>Chat (Demo)</h2>
+<div id="messages"></div>
+<input id="msg" placeholder="Message"><button id="send">Send</button>
+<script>
+async function fetchMsgs(){ const res=await fetch('/backend/chat_fetch.php'); const j=await res.json(); const el=document.getElementById('messages'); el.innerHTML=''; j.forEach(m=>{ const d=document.createElement('div'); d.textContent = m.username + ': ' + m.content; el.appendChild(d); }); }
+document.getElementById('send').addEventListener('click', async ()=>{ const fd=new FormData(); fd.append('content',document.getElementById('msg').value); await fetch('/backend/chat_send.php',{method:'POST',body:fd}); document.getElementById('msg').value=''; fetchMsgs(); });
+fetchMsgs(); setInterval(fetchMsgs,3000);
+</script>
+</body></html>
